@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d822f69-9e3c-4e2b-8ee1-11779bb646bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test_files/1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_files/1_answers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6d822f69-9e3c-4e2b-8ee1-11779bb646bd" name="Changes" comment="added windows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DNA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DNA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DNATest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DNATest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_files/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_files/1_answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_files/1_answers.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,9 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.DNATest.executor": "Run",
-    "JUnit.DNATest.testBasic.executor": "Debug",
+    "JUnit.DNATest.testBasic.executor": "Run",
+    "JUnit.DNATest.testEvenMore.executor": "Run",
+    "JUnit.DNATest.testLargest.executor": "Run",
     "JUnit.DNATest.testMore.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -58,7 +59,7 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.DNATest.testBasic">
+  <component name="RunManager" selected="JUnit.DNATest.testLargest">
     <configuration name="DNATest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DNA 2.0 Student Code" />
       <option name="PACKAGE_NAME" value="" />
@@ -78,6 +79,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DNATest.testEvenMore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DNA 2.0 Student Code" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DNATest" />
+      <option name="METHOD_NAME" value="testEvenMore" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DNATest.testLargest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DNA 2.0 Student Code" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DNATest" />
+      <option name="METHOD_NAME" value="testLargest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DNATest.testMore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DNA 2.0 Student Code" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,9 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DNATest.testBasic" />
-        <item itemvalue="JUnit.DNATest.testMore" />
+        <item itemvalue="JUnit.DNATest.testLargest" />
         <item itemvalue="JUnit.DNATest" />
+        <item itemvalue="JUnit.DNATest.testEvenMore" />
+        <item itemvalue="JUnit.DNATest.testMore" />
+        <item itemvalue="JUnit.DNATest.testBasic" />
       </list>
     </recent_temporary>
   </component>
@@ -105,32 +128,29 @@
       <option name="presentableId" value="Default" />
       <updated>1722368227958</updated>
     </task>
+    <task id="LOCAL-00001" summary="added windows">
+      <option name="closed" value="true" />
+      <created>1728672988341</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728672988341</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added windows" />
+    <option name="LAST_COMMIT_MESSAGE" value="added windows" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/DNA.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DNA.java</url>
           <line>19</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/DNATest.java</url>
-          <line>30</line>
-          <properties class="DNATest" method="testBasic">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

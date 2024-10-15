@@ -47,7 +47,7 @@ public class DNATest {
     @Test
     @Timeout(value = 20000, unit = TimeUnit.MILLISECONDS)
     public void testLargest() {
-        int maxSize = 1000000000;
+        int maxSize = 100000000;
         char STR = 'a';
         try {
             char[] largeCharArray = new char[maxSize];

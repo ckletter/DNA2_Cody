@@ -1,9 +1,12 @@
-Name: YOUR NAME HERE
+Name: Cody
 
-| Date    |  Time  |                                     Update |
-|:--------|:------:|-------------------------------------------:|
-| April 5 | 9-10pm | I tried to write abstract, efficient code. |
-|         |        |                                            |
+| Date   |    Time     |                                                                                                                                                                                                                                                                                                                                                                                                   Update |
+|:-------|:-----------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Oct 8  |  1:10-1:40  |                                                                                                               I spent this time really thinking about how to approach the problem. I considered the case where there might be a consecutive count of STRs and wherever it stops, you only need to go back and consider the indices of the last STR where it broke. My next step will be to begin coding. |
+| Oct 9  |  6:30-7:00  |                                                                 I spent this time just trying to code for correctness, i.e. completing the problem set like a CS1 student (this actually was more challenging than I expected). I ultimately tackled it by going one letter at a time in the entire sequence and doing a while loop until the STR breaks, then checking the next letter in the sequence. |
+| Oct 10 | 10:00-10:40 |                                                                                          After hearing Mr. Blick's hint about essentially using numbers to represent the sequence allowing for constant time comparisons, I spoke with Sierra and decided to use 1, 2, 3, and 4 to represent each possible base pair, and therefore each sequence, as a number. I began coding this conversion in class. |
+| Oct 11 |  3:30-4:00  | I continued going about my strategy of number comparisons, also including a function such that instead of calculating the entire number window again and representing it as a number, it takes the previous number window and chops off the left most number, and appends the newest DNA base to the sequence, allowing for a runtime just the size of the sequence. I finished this code and it worked! |
+| Oct 14  |  5:30-6:00  |                                                                                                                                                                                                                                                                                              I spent most of this time commenting my code! I also changed testlargest so that I don't run out of memory. |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.
