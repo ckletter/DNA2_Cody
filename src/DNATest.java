@@ -29,7 +29,7 @@ public class DNATest {
     @Test
     @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     public void testBasic() {
-        setTestData(1);
+        setTestData(0);
     }
 
     @Test

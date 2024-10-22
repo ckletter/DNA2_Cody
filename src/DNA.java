@@ -12,10 +12,8 @@
 
 public class DNA {
     // Constant values representing each DNA base (A, T, C, G)
-    public static final int A_VALUE = 1;
-    public static final int C_VALUE = 2;
-    public static final int T_VALUE = 3;
-    public static final int G_VALUE = 4;
+    public static final int RADIX = 256;
+    public static final long P_VALUE = 54321102419;
 
     /**
      * Given a sequence of DNA, determines longest count of short tandem repeats in a given sub-sequence of DNA in the larger sequence
@@ -26,24 +24,24 @@ public class DNA {
     public static int STRCount(String sequence, String STR) {
         int totalCons = 0;
         int strLength = STR.length();
-        int windowNum = convertToNum(sequence.substring(0, strLength), strLength);
-        int strNum = convertToNum(STR, strLength);
+        long seqHash = hash(sequence.substring(0, strLength), strLength);
+        long strHash = hash(STR, strLength);
         int seqLength = sequence.length();
         for (int i = 0; i < seqLength - strLength; i++) {
             int tempCount = 0;
-            int currentNum = windowNum;
+            long currentNum = seqHash;
             int currentIndex = i;
             while (true) {
-                if (currentNum == strNum) {
+                if (currentNum == strHash) {
                     tempCount++;
                     currentIndex += strLength;
                     try {
-                        currentNum = convertToNum(sequence.substring(currentIndex, currentIndex + strLength), strLength);
+                        currentNum = hash(sequence.substring(currentIndex, currentIndex + strLength), strLength);
                     } catch (IndexOutOfBoundsException e) {
                         currentNum = -1;
                     }
                 } else {
-                    windowNum = calcNextWindow(sequence, i, windowNum, strLength);
+                    seqHash = nextHash(sequence, i, seqHash, strLength);
                     totalCons = Math.max(tempCount, totalCons);
                     break;
                 }
@@ -58,19 +56,15 @@ public class DNA {
      * @param strLength the length of the STR being searched for
      * @return the number representation of the sequence
      */
-    public static int convertToNum(String sequence, int strLength) {
+    public static long hash(String sequence, int strLength) {
         // Loops through each letter in the sequence
-        int windowNum = 0;
+        int hash = 0;
         for (int i = 0; i < strLength; i++) {
             // Allocates space in the number for the DNA base
-            windowNum = windowNum * 10;
-            // Gets the letter and adds its number equivalent to the number representing the whole sequence
-            char letter = sequence.charAt(i);
-            windowNum = addLetter(letter, windowNum);
+            hash = (hash * RADIX + Character.toUpperCase(sequence.charAt(i))) % P_VALUE;
         }
-        return windowNum;
+        return hash;
     }
-
     /**
      * Takes in a number representation of a sequence and a current index, and outputs the "next window," or the
      * number representation of the sequence beginning at index one to the right
@@ -80,41 +74,14 @@ public class DNA {
      * @param strLength length of given STR being searched for
      * @return number representation of next window
      */
-    public static int calcNextWindow(String sequence, int currentIndex, int windowNum, int strLength) {
-        // Determines modulus number in order to remove the digit furthest to the left
-        int modulus = (int) Math.pow(10, strLength - 1);
-        // Removes digit furthest to left in window number and allocates space for new DNA base
-        int nextWindow = windowNum % modulus * 10;
+    public static long nextHash(String sequence, int currentIndex, long seqHash, int strLength) {
+        int firstCharVal = sequence.charAt(currentIndex);
+        // Removes first term
+        seqHash = (seqHash + P_VALUE) - (firstCharVal * (long) Math.pow(RADIX, strLength - 1) % P_VALUE) % P_VALUE;
         // Determines index of the next DNA base to be added
         int finalIndex = currentIndex + strLength;
-        // Adds next DNA base to current window number
-        nextWindow = addLetter(Character.toUpperCase(sequence.charAt(finalIndex)), nextWindow);
-        return nextWindow;
-    }
-
-    /**
-     * Given a letter, adds its number equivalent to the number representation of the current sequence
-     * @param letter A, C, T, or G
-     * @param windowNum current number representation of the sequence without newest base added
-     * @return window number with base added
-     */
-    public static int addLetter(char letter, int windowNum) {
-        // Add A onto number sequence
-        if (letter == 'A') {
-            windowNum = windowNum + A_VALUE;
-        }
-        // Add C onto number sequence
-        else if (letter == 'C') {
-            windowNum = windowNum + C_VALUE;
-        }
-        // Add T onto number sequence
-        else if (letter == 'T') {
-            windowNum = windowNum + T_VALUE;
-        }
-        // Add G onto number sequence
-        else {
-            windowNum = windowNum + G_VALUE;
-        }
-        return windowNum;
+        // Adds next term by Horner's Method
+        seqHash = (seqHash * RADIX + Character.toUpperCase(sequence.charAt(finalIndex))) % P_VALUE;
+        return seqHash;
     }
 }
